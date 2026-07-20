@@ -37,7 +37,7 @@ export const onBoardUser = async () => {
     return {
       success: true,
       user: newUser,
-      message: "User onBorded Successfully"
+      message: "User onBorded Successfully",
     };
   } catch (error) {
     console.error("Onboarding Error:", error);
@@ -45,6 +45,37 @@ export const onBoardUser = async () => {
     return {
       success: false,
       error: "Something went wrong",
+    };
+  }
+};
+
+export const currentUserRole = async () => {
+  try {
+    const user = await currentUser();
+
+    if (!user) {
+      return {
+        success: false,
+        error: "No authenticated user found",
+      };
+    }
+
+    const { id } = user;
+
+    const userRole = await db.user.findUnique({
+      where: {
+        clerkId: id,
+      },
+      select: {
+        role: true,
+      },
+    });
+    return userRole?.role;
+  } catch (error) {
+    console.error("Error fatching user role", error);
+    return {
+      success: false,
+      error: "Faild to fetch user role",
     };
   }
 };
