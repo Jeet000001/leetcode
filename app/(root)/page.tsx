@@ -6,9 +6,6 @@ import {
   ChevronRight,
   Play,
   Star,
-  Moon,
-  Sun,
-  Menu,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -20,6 +17,7 @@ import {
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { onBoardUser } from "@/modules/auth/actions";
+import Hero from "@/components/landing-page-components/Hero";
 
 export default async function Home() {
   await onBoardUser();
@@ -88,76 +86,7 @@ export default async function Home() {
   return (
     <div className="min-h-screen  transition-colors mt-24">
       {/* Hero Section */}
-      <section className="min-h-screen flex flex-col justify-center items-center px-4 pt-16">
-        <div className="max-w-6xl mx-auto text-center">
-          {/* Badge */}
-          <Badge
-            variant="secondary"
-            className="mb-8 bg-amber-50 dark:bg-amber-950 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800 hover:bg-amber-100 dark:hover:bg-amber-900"
-          >
-            <Star className="w-4 h-4 mr-2" />
-            Join 10,000+ developers already coding
-          </Badge>
-
-          {/* Main Heading */}
-          <h1 className="text-2xl md:text-5xl lg:text-6xl font-black text-gray-900 dark:text-white leading-tight mb-8">
-            Master{" "}
-            <span className="relative inline-block">
-              <span className="px-6 py-3 bg-amber-500 dark:bg-amber-400 text-white dark:text-gray-900 rounded-2xl transform -rotate-1 inline-block shadow-lg">
-                Problem
-              </span>
-            </span>{" "}
-            Solving
-            <br />
-            with{" "}
-            <span className="relative inline-block">
-              <span className="px-6 py-3 bg-indigo-600 dark:bg-indigo-500 text-white rounded-2xl transform rotate-1 inline-block shadow-lg">
-                Code
-              </span>
-            </span>
-          </h1>
-
-          {/* Subheading */}
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Challenge yourself with thousands of coding problems, compete with
-            developers worldwide, and accelerate your programming journey with
-            real-time feedback and expert solutions.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-            <Button
-              size="lg"
-              className="bg-amber-500 hover:bg-amber-600 dark:bg-amber-400 dark:hover:bg-amber-500 text-white dark:text-gray-900 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all"
-            >
-              <Play className="w-5 h-5 mr-2" />
-              Start Coding Now
-              <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              className="border-2 border-indigo-300 dark:border-indigo-600 text-indigo-700 dark:text-indigo-300 hover:bg-indigo-50 dark:hover:bg-indigo-950"
-            >
-              Browse Problems
-            </Button>
-          </div>
-
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 dark:text-gray-400 font-medium">
-                  {stat.label}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Features Section */}
       <section
@@ -292,3 +221,19 @@ export default async function Home() {
     </div>
   );
 }
+
+
+          // {/* Stats */}
+          // <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+          //   {stats.map((stat, index) => (
+          //     <div key={index} className="text-center">
+          //       <div className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+          //         {stat.number}
+          //       </div>
+          //       <div className="text-gray-600 dark:text-gray-400 font-medium">
+          //         {stat.label}
+          //       </div>
+          //     </div>
+          //   ))}
+          // </div>
+ 
